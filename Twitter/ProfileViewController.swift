@@ -44,7 +44,7 @@ class ProfileViewController: UIViewController {
     }
     
     @IBAction func onBack(sender: AnyObject) {
-        self.performSegueWithIdentifier("backSegue", sender: self)
+       dismissViewControllerAnimated(true, completion: nil)
     }
 
     override func didReceiveMemoryWarning() {

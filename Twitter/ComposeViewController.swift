@@ -38,7 +38,7 @@ class ComposeViewController: UIViewController {
     }
 
     @IBAction func onCancel(sender: AnyObject) {
-        self.performSegueWithIdentifier("cancelSegue", sender: self)
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
 
