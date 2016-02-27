@@ -41,7 +41,7 @@ class TwitterClient: BDBOAuth1SessionManager {
                 print("Failure to get twitter feed")
                 completion_(tweets: nil, error: error)
         })
-
+//        func postStatus(params: String?, completion_: (tweet)
     }
     func openURL(url: NSURL){
         fetchAccessTokenWithPath("oauth/access_token", method: "POST", requestToken: BDBOAuth1Credential (queryString:url.query), success: { (accessToken: BDBOAuth1Credential!) -> Void in

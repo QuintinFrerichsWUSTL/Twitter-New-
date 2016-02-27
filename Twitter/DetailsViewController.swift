@@ -10,11 +10,13 @@ import UIKit
 
 class DetailsViewController: UIViewController {
    var tweet: Tweet!
+    var user: User!
     @IBOutlet weak var replyButton: UIButton!
     
     @IBOutlet weak var retweetButton: UIButton!
     
     
+    @IBOutlet weak var transferButton: UIButton!
     @IBOutlet weak var handleLabel: UILabel!
     @IBOutlet weak var likeButton: UIButton!
     
@@ -38,6 +40,7 @@ class DetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+            user = tweet.user
             numberLikes = tweet.numLikes!
             numberRetweets = tweet.numRetweets!
             let username = tweet.username
@@ -80,6 +83,17 @@ class DetailsViewController: UIViewController {
     
     
     
+    @IBAction func onTransfer(sender: AnyObject) {
+        self.performSegueWithIdentifier("transferSegue", sender: self)
+       
+              }
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
+        if let destination = segue.destinationViewController as? ProfileViewController{
+            let profileViewController = segue.destinationViewController as!ProfileViewController
+            profileViewController.user = user
+        }
+        
+    }
     @IBAction func onRetweet(sender: AnyObject) {
         numberRetweets++
         retweetsLabel.textColor = UIColor(red: 0.6, green: 1.0, blue: 0.6, alpha: 1.0)

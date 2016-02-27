@@ -23,7 +23,7 @@ class User: NSObject {
     var followers: Int?
     init(dictionary: NSDictionary){
         self.dictionary = dictionary
-//        tweetCount = (dictionary["tweets_count"]as? Int)!
+        tweetCount = (dictionary["statuses_count"]as? Int)!
         favsCount = (dictionary["favourites_count"]as? Int)!
        following = (dictionary["friends_count"]as? Int)!
         followers = (dictionary["followers_count"]as? Int)!

@@ -10,18 +10,23 @@ import UIKit
 
 class ComposeViewController: UIViewController {
     
+    
 
+    
     @IBOutlet weak var handleLabel: UILabel!
     @IBOutlet weak var pictureView: UIImageView!
     
+    @IBOutlet weak var textField: UITextView!
     @IBOutlet weak var usernameLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
+        let tweetText = textField.text as! String
         let user = User.currentUser
         usernameLabel.text = user!.name
         handleLabel.text = "@ \(user!.screenname!)"
         if user!.profileImageURL != nil{
             pictureView.setImageWithURL(user!.profileImageURL!)
+            
         }
         
         // Do any additional setup after loading the view.
@@ -31,12 +36,12 @@ class ComposeViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
+    @IBAction func onCancel(sender: AnyObject) {
+        self.performSegueWithIdentifier("cancelSegue", sender: self)
+    }
     
-//    @IBAction func onCancel(sender: AnyObject) {
-//        self.performSegueWithIdentifier("cancelSegue", sender: self)
-//        
-//        
-//    }
+
 
     /*
     // MARK: - Navigation

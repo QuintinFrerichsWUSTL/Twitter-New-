@@ -16,12 +16,12 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var countLabel: UILabel!
     @IBOutlet weak var followersLabel: UILabel!
     
-    
+    var user = User.currentUser
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let user = User.currentUser
+        //let user = User.currentUser
         if user!.profileImageURL != nil{
         profileImageView.setImageWithURL(user!.profileImageURL!)
         }
@@ -32,15 +32,19 @@ class ProfileViewController: UIViewController {
         if user!.following != 0{
              followingLabel.text = ("Following: \(user!.following!)")
         }
-//        if user!.tweetCount != 0{
-//            countLabel.text = ("Tweets: \(user!.tweetCount!)")
-//        }
+        if user!.tweetCount != 0{
+            countLabel.text = ("Tweets: \(user!.tweetCount!)")
+        }
         
        
        
         
 
         // Do any additional setup after loading the view.
+    }
+    
+    @IBAction func onBack(sender: AnyObject) {
+        self.performSegueWithIdentifier("backSegue", sender: self)
     }
 
     override func didReceiveMemoryWarning() {
