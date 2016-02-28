@@ -21,11 +21,7 @@ class ComposeViewController: UIViewController {
     var tweetText: String?
     override func viewDidLoad() {
         super.viewDidLoad()
-        TwitterClient.sharedInstance.homeTimeLineWithParams(nil, completion_:{(tweets,error)->() in
-            self.tweets = tweets
-            
-        })
-        tweetText = textField.text as! String
+        tweetText = textField.text
         let user = User.currentUser
         usernameLabel.text = user!.name
         handleLabel.text = "@ \(user!.screenname!)"
@@ -50,8 +46,6 @@ class ComposeViewController: UIViewController {
         
         if tweetText != nil {
             let tweet = tweetText!.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)
-            
-            
             
             TwitterClient.sharedInstance.tweeting(tweet!)
         }

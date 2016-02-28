@@ -34,7 +34,6 @@ class TwitterClient: BDBOAuth1SessionManager {
     }
     func homeTimeLineWithParams(params: NSDictionary?, completion_: (tweets: [Tweet]?, error: NSError?)->()){
         GET("1.1/statuses/home_timeline.json", parameters: params, success: { (operation: NSURLSessionDataTask!, response:  AnyObject?) -> Void in
-            //print("status: \(response)")
             var tweets = Tweet.tweetsWithArray(response as! [NSDictionary])
             completion_(tweets: tweets, error: nil)
             }, failure: { (operation: NSURLSessionDataTask?, error:NSError) -> Void in
@@ -47,8 +46,9 @@ class TwitterClient: BDBOAuth1SessionManager {
     func tweeting(tweet:String){
        
         POST("https://api.twitter.com/1.1/statuses/update.json?status=\(tweet)",  parameters:nil, success: {(operation: NSURLSessionDataTask!, response: AnyObject?) -> Void in
-            var tweets = Tweet.tweetsWithArray(response as! [NSDictionary])
+           
             }, failure: { (operation: NSURLSessionDataTask?, error:NSError) -> Void in
+
                 print("Failure to get twitter feed")
     })
     }
