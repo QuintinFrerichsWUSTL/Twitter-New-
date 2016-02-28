@@ -59,7 +59,7 @@ Describe any challenges encountered while building the app.
     limitations under the License.
     
 
-Time spent: **X** hours spent in total
+Time spent: 9 hours spent in total
 
 ## User Stories
 
