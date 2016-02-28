@@ -70,6 +70,9 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G7I-Ch-WNX">
                                 <rect key="frame" x="266" y="21" width="42" height="30"/>
                                 <state key="normal" title="Tweet"/>
+                                <connections>
+                                    <action selector="onTweet:" destination="XTF-9V-IDh" eventType="touchUpInside" id="lfl-Z8-NfB"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o5P-s4-M6g">
                                 <rect key="frame" x="6" y="21" width="48" height="30"/>
@@ -162,23 +165,23 @@
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5RQ-zu-Zp8">
-                                                    <rect key="frame" x="97" y="110" width="14" height="15"/>
+                                                    <rect key="frame" x="97" y="110" width="27" height="15"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="14" id="UZ2-aU-X0K"/>
+                                                        <constraint firstAttribute="width" constant="27" id="UZ2-aU-X0K"/>
                                                         <constraint firstAttribute="height" constant="15" id="fhL-XY-ybh"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <color key="textColor" red="0.86274509803921573" green="0.078431372549019607" blue="0.23529411764705882" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" red="0.72897230308600802" green="0.72973896532409943" blue="0.7335583993212671" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j97-8I-ocT">
-                                                    <rect key="frame" x="147" y="110" width="21" height="15"/>
+                                                    <rect key="frame" x="147" y="110" width="53" height="15"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="15" id="2ty-ZQ-vo8"/>
-                                                        <constraint firstAttribute="width" constant="21" id="t0r-Nl-By3"/>
+                                                        <constraint firstAttribute="width" constant="53" id="t0r-Nl-By3"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <color key="textColor" red="0.59215686274509804" green="0.9882352941176471" blue="0.59215686274509804" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" red="0.66114436510316699" green="0.66513833898944197" blue="0.65739364679268542" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pc6-EM-Esv">
@@ -217,8 +220,8 @@
                                                 <constraint firstItem="2GD-8a-acg" firstAttribute="top" secondItem="pxL-XU-J0e" secondAttribute="top" constant="4" id="caF-mu-Nhg"/>
                                                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="2GD-8a-acg" secondAttribute="bottom" constant="45" id="dbD-xY-lgD"/>
                                                 <constraint firstItem="Pc6-EM-Esv" firstAttribute="leading" secondItem="2GD-8a-acg" secondAttribute="trailing" constant="3" id="e13-Sb-adq"/>
-                                                <constraint firstItem="DuP-As-Fxh" firstAttribute="leading" secondItem="5RQ-zu-Zp8" secondAttribute="trailing" constant="15" id="f0F-cd-Njv"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="j97-8I-ocT" secondAttribute="trailing" constant="135" id="gwj-Xt-YNI"/>
+                                                <constraint firstItem="DuP-As-Fxh" firstAttribute="leading" secondItem="5RQ-zu-Zp8" secondAttribute="trailing" constant="2" id="f0F-cd-Njv"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="j97-8I-ocT" secondAttribute="trailing" constant="92" id="gwj-Xt-YNI"/>
                                                 <constraint firstItem="vgh-yu-HEl" firstAttribute="top" secondItem="Pc6-EM-Esv" secondAttribute="bottom" constant="5" id="lNR-Rg-kXY"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="5RQ-zu-Zp8" secondAttribute="bottom" constant="10.5" id="off-0N-6r6"/>
                                                 <constraint firstItem="P5b-Qa-0kl" firstAttribute="leading" secondItem="Pc6-EM-Esv" secondAttribute="trailing" constant="85" id="pv3-bz-gRr"/>
@@ -500,7 +503,7 @@
         <!--Home-->
         <scene sceneID="MqU-qD-bzV">
             <objects>
-                <navigationController title="Home" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="BoQ-qt-3Ve" sceneMemberID="viewController">
+                <navigationController title="Home" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="BoQ-qt-3Ve" customClass="MyNavigationController" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="home-1" id="eKl-d5-Pch"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="vnK-tE-iBy">
@@ -520,7 +523,7 @@
         <scene sceneID="F4q-HR-wz9">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HNp-9X-HkK" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="noun_50857" selectedImage="profile-photo" id="HZK-Ze-nIP"/>
+                    <tabBarItem key="tabBarItem" title="" image="noun_50857" id="HZK-Ze-nIP"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Y9H-H7-eBb">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -543,11 +546,10 @@
         <image name="home-1" width="35" height="35"/>
         <image name="like-action-off" width="54" height="72"/>
         <image name="noun_50857" width="35" height="35"/>
-        <image name="profile-photo" width="49" height="35"/>
         <image name="reply-action_0" width="65" height="72"/>
         <image name="retweet-action-inactive" width="75" height="72"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="iDV-AM-Ysf"/>
+        <segue reference="sed-tn-p4K"/>
     </inferredMetricsTieBreakers>
 </document>

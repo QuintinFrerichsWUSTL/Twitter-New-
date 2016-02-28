@@ -11,16 +11,21 @@ import UIKit
 class ComposeViewController: UIViewController {
     
     
-
+    var tweets: [Tweet]!
     
     @IBOutlet weak var handleLabel: UILabel!
     @IBOutlet weak var pictureView: UIImageView!
     
     @IBOutlet weak var textField: UITextView!
     @IBOutlet weak var usernameLabel: UILabel!
+    var tweetText: String?
     override func viewDidLoad() {
         super.viewDidLoad()
-        let tweetText = textField.text as! String
+        TwitterClient.sharedInstance.homeTimeLineWithParams(nil, completion_:{(tweets,error)->() in
+            self.tweets = tweets
+            
+        })
+        tweetText = textField.text as! String
         let user = User.currentUser
         usernameLabel.text = user!.name
         handleLabel.text = "@ \(user!.screenname!)"
@@ -41,6 +46,16 @@ class ComposeViewController: UIViewController {
         dismissViewControllerAnimated(true, completion: nil)
     }
     
+    @IBAction func onTweet(sender: AnyObject) {
+        
+        if tweetText != nil {
+            let tweet = tweetText!.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)
+            
+            
+            
+            TwitterClient.sharedInstance.tweeting(tweet!)
+        }
+    }
 
 
     /*

@@ -41,7 +41,16 @@ class TwitterClient: BDBOAuth1SessionManager {
                 print("Failure to get twitter feed")
                 completion_(tweets: nil, error: error)
         })
-//        func postStatus(params: String?, completion_: (tweet)
+
+    }
+    
+    func tweeting(tweet:String){
+       
+        POST("https://api.twitter.com/1.1/statuses/update.json?status=\(tweet)",  parameters:nil, success: {(operation: NSURLSessionDataTask!, response: AnyObject?) -> Void in
+            var tweets = Tweet.tweetsWithArray(response as! [NSDictionary])
+            }, failure: { (operation: NSURLSessionDataTask?, error:NSError) -> Void in
+                print("Failure to get twitter feed")
+    })
     }
     func openURL(url: NSURL){
         fetchAccessTokenWithPath("oauth/access_token", method: "POST", requestToken: BDBOAuth1Credential (queryString:url.query), success: { (accessToken: BDBOAuth1Credential!) -> Void in

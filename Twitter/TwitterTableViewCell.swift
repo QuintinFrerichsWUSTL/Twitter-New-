@@ -9,7 +9,8 @@
 import UIKit
 
 class TwitterTableViewCell: UITableViewCell {
-
+    var numberLikes: Int = 0
+    var numberRetweets: Int = 0
     @IBOutlet weak var retweetButton: UIButton!
     
     @IBOutlet weak var favsButton: UIButton!
@@ -20,19 +21,21 @@ class TwitterTableViewCell: UITableViewCell {
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var timeLabel: UILabel!
-    var favoriteCount: Int = 0
-    var retweetedCount: Int = 0
     var tweet: Tweet!{
         didSet{
-             if(favoriteCount>=1){
-            favoritesLabel.text = "\(favoriteCount)"
+            numberLikes = tweet.numLikes!
+            numberRetweets = tweet.numRetweets!
+            
+
+             if(numberLikes>=1){
+            favoritesLabel.text = "\(numberLikes)"
             }
              else{
                 favoritesLabel.text = ""
             }
-            if(retweetedCount >= 1)
+            if(numberRetweets >= 1)
             {
-            retweetsLabel.text = "\(retweetedCount)"
+            retweetsLabel.text = "\(numberRetweets)"
             }
             else{
                 retweetsLabel.text = ""
@@ -72,17 +75,18 @@ class TwitterTableViewCell: UITableViewCell {
     }
 
     @IBAction func onFavorite(sender: AnyObject) {
-        favoriteCount++
-       
-        favoritesLabel.text = "\(favoriteCount)"
+        numberLikes++
+        favoritesLabel.textColor = UIColor(red: 0.86, green: 0.08, blue: 0.24, alpha: 1.0)
+        favoritesLabel.text = "\(numberLikes)"
         favsButton.setImage(UIImage(named: "like-action-on-red"), forState: UIControlState.Normal)
     }
     
     
     @IBAction func onRetweet(sender: AnyObject) {
-        retweetedCount++
-            retweetsLabel.text = "\(retweetedCount)"
-        retweetButton.setImage(UIImage(named:"retweet-action-on-green"), forState: UIControlState.Normal)
+        numberRetweets++
+        retweetsLabel.textColor = UIColor(red: 0.6, green: 1.0, blue: 0.6, alpha: 1.0)
+        retweetsLabel.text = "\(numberRetweets)"
+        retweetButton.setImage(UIImage(named: "retweet-action-on-green"), forState: UIControlState.Normal)
     }
     
 

@@ -27,18 +27,6 @@ class Tweet: NSObject {
         numLikes = dictionary["favorite_count"] as? Int
         numRetweets = dictionary["retweet_count"] as? Int
         createdAtString = dictionary["created_at"] as? String
-        
-//        var formatter = NSDateFormatter()
-//        createdAt = formatter.dateFromString(createdAtString!)
-//        
-//        if let timeCreation = createdAt{
-//        let dateComponent = NSDateComponents()
-//        dateComponent.hour = calendar.component(NSCalendarUnit.Hour, fromDate:createdAt!)
-//        dateComponent.minute = calendar.component(NSCalendarUnit.Minute, fromDate:createdAt!)
-//        let newDate = calendar.dateFromComponents(dateComponent)
-//        formatter.dateFormat = "HH:mm"
-//            convertedDate = formatter.stringFromDate(newDate!)
-//        }
         let formatter = NSDateFormatter()
         formatter.dateFormat = "EEE MMM d HH:mm:ss Z y"
         createdAt = formatter.dateFromString(createdAtString!)
