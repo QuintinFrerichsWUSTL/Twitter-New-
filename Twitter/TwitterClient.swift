@@ -45,11 +45,13 @@ class TwitterClient: BDBOAuth1SessionManager {
     
     func tweeting(tweet:String){
        
-        POST("https://api.twitter.com/1.1/statuses/update.json?status=\(tweet)",  parameters:nil, success: {(operation: NSURLSessionDataTask!, response: AnyObject?) -> Void in
+        self.POST("https://api.twitter.com/1.1/statuses/update.json?status=\(tweet)",  parameters:nil, success: {(operation: NSURLSessionDataTask!, response: AnyObject?) -> Void in
+            print("Got the tweet to tweet")
            
             }, failure: { (operation: NSURLSessionDataTask?, error:NSError) -> Void in
 
-                print("Failure to get twitter feed")
+                print("Failure to tweet")
+                print(error)
     })
     }
     func openURL(url: NSURL){
