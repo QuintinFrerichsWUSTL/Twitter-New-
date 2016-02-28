@@ -21,7 +21,7 @@ class ComposeViewController: UIViewController {
     var tweetText: String?
     override func viewDidLoad() {
         super.viewDidLoad()
-        tweetText = textField.text
+        
         let user = User.currentUser
         usernameLabel.text = user!.name
         handleLabel.text = "@ \(user!.screenname!)"
@@ -43,7 +43,7 @@ class ComposeViewController: UIViewController {
     }
     
     @IBAction func onTweet(sender: AnyObject) {
-        
+        tweetText = textField.text
         if tweetText != nil {
             let tweet = tweetText!.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)
             
