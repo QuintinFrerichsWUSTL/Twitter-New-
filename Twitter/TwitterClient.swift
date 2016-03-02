@@ -54,6 +54,17 @@ class TwitterClient: BDBOAuth1SessionManager {
                 print(error)
     })
     }
+    func replying(reply:String){
+        
+        self.POST("https://api.twitter.com/1.1/statuses/update.json?status=\(reply)",  parameters:nil, success: {(operation: NSURLSessionDataTask!, response: AnyObject?) -> Void in
+            print("Replied")
+            
+            }, failure: { (operation: NSURLSessionDataTask?, error:NSError) -> Void in
+                
+                print("Failure to reply")
+                print(error)
+        })
+    }
     func openURL(url: NSURL){
         fetchAccessTokenWithPath("oauth/access_token", method: "POST", requestToken: BDBOAuth1Credential (queryString:url.query), success: { (accessToken: BDBOAuth1Credential!) -> Void in
             print("Got access token")
